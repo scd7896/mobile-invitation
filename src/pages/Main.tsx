@@ -3,6 +3,7 @@ import InvitationText from "../components/InvitationText";
 import KeyVisual from "../components/KeyVisual";
 import LocationMap from "../components/LcoationMap";
 import Video from "../components/Video";
+import ImageSlider from "../components/ImageSlider";
 
 const Main = () => {
   return (
@@ -10,6 +11,7 @@ const Main = () => {
       <KeyVisual />
       <Video />
       <InvitationText />
+      <ImageSlider />
       <LocationMap />
     </div>
   );

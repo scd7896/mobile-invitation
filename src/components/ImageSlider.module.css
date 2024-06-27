@@ -1,0 +1,47 @@
+@keyframes moveCarousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-103%);
+  }
+}
+
+.wrapper {
+  display: flex;
+  overflow-x: hidden;
+  position: relative;
+  box-sizing: border-box;
+
+  width: 100%;
+  padding: 0 40px;
+}
+
+.image_list {
+  display: flex;
+  align-items: center;
+}
+
+.animation {
+  animation: moveCarousel 7s linear infinite;
+}
+
+.image_list + .image_list {
+  margin-left: 48px;
+}
+
+.image_list img {
+  height: auto;
+}
+
+.img + .img {
+  padding-left: 48px;
+}
+
+.img_ver {
+  width: 180px;
+}
+
+.img_row {
+  width: 270px;
+}
