@@ -4,6 +4,7 @@ import KeyVisual from "../components/KeyVisual";
 import Video from "../components/Video";
 import ImageSlider from "../components/ImageSlider";
 import Location from "../components/Location";
+import TransportList from "../components/TransportList";
 
 const Main = () => {
   return (
@@ -13,6 +14,7 @@ const Main = () => {
       <InvitationText />
       <ImageSlider />
       <Location />
+      <TransportList />
     </div>
   );
 };
