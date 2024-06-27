@@ -1,6 +1,10 @@
 import styles from "./Location.module.css";
 import LocationMap from "./LcoationMap";
 
+const KAKAO_LINK = "https://kko.to/ra253vz-wg";
+const NAVER_LINK = "https://naver.me/xZVkziRi";
+const TMAP_LINK = "https://tmap.life/cce1b542";
+
 const Location = () => {
   return (
     <div className={styles.wrapper}>
@@ -11,17 +15,17 @@ const Location = () => {
       </section>
       <LocationMap />
       <section className={styles.map_button_wrapper}>
-        <div className={styles.tmap}>
+        <div className={styles.tmap} onClick={() => window.open(TMAP_LINK)}>
           <img className={styles.icon} src="/img/tmap_icon.png" />
           티맵
         </div>
         <div className={styles.bar} />
-        <div className={styles.naver}>
+        <div className={styles.naver} onClick={() => window.open(NAVER_LINK)}>
           <img className={styles.icon} src="/img/naver_icon.png" />
           네이버지도
         </div>
         <div className={styles.bar} />
-        <div className={styles.kakao}>
+        <div className={styles.kakao} onClick={() => window.open(KAKAO_LINK)}>
           <img className={styles.icon} src="/img/kakao_icon.png" />
           카카오맵
         </div>
