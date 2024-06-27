@@ -1,11 +1,19 @@
-import "./App.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import MobileLayout from "./layout/MobileLayout";
 import Main from "./pages/Main";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Main />,
+  },
+]);
 
 function App() {
   return (
-    <div className="App">
-      <Main />
-    </div>
+    <MobileLayout>
+      <RouterProvider router={router} />
+    </MobileLayout>
   );
 }
 
