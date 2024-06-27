@@ -25,3 +25,30 @@
   font-weight: 500;
   line-height: 160%;
 }
+
+.map_button_wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  background: #fafafa;
+  width: 100%;
+}
+
+.bar {
+  width: 1px;
+  height: 22px;
+  background: #e0e0e0;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.tmap,
+.naver,
+.kakao {
+  display: flex;
+  justify-content: center;
+  padding: 17px;
+}

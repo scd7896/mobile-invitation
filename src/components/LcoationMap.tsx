@@ -19,7 +19,7 @@ const LocationMap = () => {
     }
   }, []);
 
-  return <div className={style.wrapper} ref={refDiv}></div>;
+  return <section className={style.wrapper} ref={refDiv}></section>;
 };
 
 export default LocationMap;
