@@ -1,9 +1,9 @@
 import styles from "./Main.module.css";
 import InvitationText from "../components/InvitationText";
 import KeyVisual from "../components/KeyVisual";
-import LocationMap from "../components/LcoationMap";
 import Video from "../components/Video";
 import ImageSlider from "../components/ImageSlider";
+import Location from "../components/Location";
 
 const Main = () => {
   return (
@@ -12,7 +12,7 @@ const Main = () => {
       <Video />
       <InvitationText />
       <ImageSlider />
-      <LocationMap />
+      <Location />
     </div>
   );
 };
