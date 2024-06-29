@@ -5,6 +5,7 @@ import Video from "../components/Video";
 import ImageSlider from "../components/ImageSlider";
 import Location from "../components/Location";
 import TransportList from "../components/TransportList";
+import PictureViewSection from "../components/PictureViewSection";
 
 const Main = () => {
   return (
@@ -15,6 +16,7 @@ const Main = () => {
       <ImageSlider />
       <Location />
       <TransportList />
+      <PictureViewSection />
     </div>
   );
 };
