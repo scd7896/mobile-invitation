@@ -23,11 +23,11 @@
 }
 
 .animation {
-  animation: moveCarousel 7s linear infinite;
+  animation: moveCarousel 20s linear infinite;
 }
 
 .image_list + .image_list {
-  margin-left: 48px;
+  margin-left: 56px;
 }
 
 .image_list img {
@@ -35,7 +35,7 @@
 }
 
 .img + .img {
-  padding-left: 48px;
+  padding-left: 56px;
 }
 
 .img_ver {
