@@ -33,12 +33,23 @@ const ImageCarousel = ({ onClick }: Props) => {
     return [waitPrevIndex, prevIndex, currentIndex, nextIndex, waitNextIndex];
   }, [currentIndex, getPrevIndex, getNextIndex]);
 
+  const handleClickImage = useCallback(
+    (targetIndex: number) => {
+      if (targetIndex === currentIndex) {
+        onClick?.(targetIndex);
+      } else {
+        setCurrentIndex(targetIndex);
+      }
+    },
+    [currentIndex]
+  );
+
   return (
     <div className={styles.wrapper}>
       {showImageList.map((index) => (
         <section
           key={imageList[index]}
-          onClick={() => onClick?.(index)}
+          onClick={() => handleClickImage(index)}
           className={styles.image}
         >
           <img src={imageList[index]} width="100%" />
