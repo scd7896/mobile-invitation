@@ -1,8 +1,10 @@
-import { ReactNode, useCallback, useState } from "react";
+import { ReactNode, useCallback, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
+import Slider from "react-slick";
 import { imageList } from "../constant/imageList";
 import styles from "./ImageModal.module.css";
 import CloseIcon from "./icon/CloseIcon";
+import ButtonArrowIcon from "./icon/ButtonArrowIcon";
 
 type Props = {
   onClose: () => void;
@@ -10,6 +12,7 @@ type Props = {
 };
 
 const ImageModal = ({ onClose, defaultIndex }: Props) => {
+  const sliderRef = useRef<Slider>(null);
   const [currentIndex, setCurrentIndex] = useState(defaultIndex);
   const getPrevIndex = useCallback((index: number) => {
     if (index - 1 < 0) {
@@ -28,8 +31,37 @@ const ImageModal = ({ onClose, defaultIndex }: Props) => {
 
   return (
     <div className={styles.wrapper}>
-      <section className={styles.close} onClick={onClose}>
-        <CloseIcon />
+      <section className={styles.header}>
+        <section className={styles.close} onClick={onClose}>
+          <CloseIcon />
+        </section>
+      </section>
+      <section className={styles.body}>
+        <Slider className={styles.slider} arrows={false} ref={sliderRef}>
+          {imageList.map((it) => (
+            <div key={it} className={styles.image_wrapper}>
+              <img className={styles.image} src={it} />
+            </div>
+          ))}
+        </Slider>
+      </section>
+      <section className={styles.footer}>
+        <div
+          className={styles.button}
+          onClick={() => {
+            sliderRef.current?.slickPrev();
+          }}
+        >
+          <ButtonArrowIcon />
+        </div>
+        <div
+          className={`${styles.button} ${styles.next}`}
+          onClick={() => {
+            sliderRef.current?.slickNext();
+          }}
+        >
+          <ButtonArrowIcon />
+        </div>
       </section>
     </div>
   );
