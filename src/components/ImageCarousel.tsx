@@ -3,6 +3,7 @@ import { imageList } from "../constant/imageList";
 import styles from "./ImageCarousel.module.css";
 import ArrowIcon from "./icon/ArrowIcon";
 import imageModal from "./ImageModal";
+import useTouch from "../hooks/useTouch";
 
 const ImageCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
@@ -21,6 +22,12 @@ const ImageCarousel = () => {
 
     return index + 1;
   }, []);
+
+  const { handleTouchStartEnvet, handleTouchMoveEvent, handleTouchEndEvent } =
+    useTouch({
+      onNext: () => setCurrentIndex(getNextIndex),
+      onPrev: () => setCurrentIndex(getPrevIndex),
+    });
 
   const showImageList = useMemo(() => {
     const prevIndex = getPrevIndex(currentIndex);
@@ -44,12 +51,20 @@ const ImageCarousel = () => {
 
   return (
     <>
-      <section className={styles.container}>
+      <section
+        className={styles.container}
+        onTouchStart={handleTouchStartEnvet}
+        onTouchMove={handleTouchMoveEvent}
+        onTouchEnd={handleTouchEndEvent}
+      >
         <div className={styles.wrapper}>
           {showImageList.map((index) => (
             <section
               key={imageList[index]}
-              onClick={() => handleClickImage(index)}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleClickImage(index);
+              }}
               className={styles.image}
             >
               <img src={imageList[index]} />
