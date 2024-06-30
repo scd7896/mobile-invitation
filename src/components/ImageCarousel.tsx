@@ -1,12 +1,10 @@
 import { useCallback, useMemo, useState } from "react";
 import { imageList } from "../constant/imageList";
 import styles from "./ImageCarousel.module.css";
+import ArrowIcon from "./icon/ArrowIcon";
+import imageModal from "./ImageModal";
 
-type Props = {
-  onClick?: (index: number) => void;
-};
-
-const ImageCarousel = ({ onClick }: Props) => {
+const ImageCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
 
   const getPrevIndex = useCallback((index: number) => {
@@ -36,7 +34,7 @@ const ImageCarousel = ({ onClick }: Props) => {
   const handleClickImage = useCallback(
     (targetIndex: number) => {
       if (targetIndex === currentIndex) {
-        onClick?.(targetIndex);
+        imageModal.show(currentIndex);
       } else {
         setCurrentIndex(targetIndex);
       }
@@ -45,27 +43,37 @@ const ImageCarousel = ({ onClick }: Props) => {
   );
 
   return (
-    <div className={styles.wrapper}>
-      {showImageList.map((index) => (
-        <section
-          key={imageList[index]}
-          onClick={() => handleClickImage(index)}
-          className={styles.image}
-        >
-          <img src={imageList[index]} width="100%" />
-          {index === currentIndex && (
-            <div className={styles.progress}>
-              <div
-                className={styles.progress_fill}
-                onAnimationEnd={(e) => {
-                  setCurrentIndex((prev) => getNextIndex(prev));
-                }}
-              />
-            </div>
-          )}
-        </section>
-      ))}
-    </div>
+    <>
+      <section className={styles.container}>
+        <div className={styles.wrapper}>
+          {showImageList.map((index) => (
+            <section
+              key={imageList[index]}
+              onClick={() => handleClickImage(index)}
+              className={styles.image}
+            >
+              <img src={imageList[index]} width="100%" />
+              {index === currentIndex && (
+                <div className={styles.progress}>
+                  <div
+                    className={styles.progress_fill}
+                    onAnimationEnd={(e) => {
+                      setCurrentIndex((prev) => getNextIndex(prev));
+                    }}
+                  />
+                </div>
+              )}
+            </section>
+          ))}
+        </div>
+      </section>
+      <div
+        className={styles.button}
+        onClick={() => imageModal.show(currentIndex)}
+      >
+        사진 전체보기 <ArrowIcon />
+      </div>
+    </>
   );
 };
 
