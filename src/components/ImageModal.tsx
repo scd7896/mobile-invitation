@@ -75,7 +75,6 @@ const createReactRoot = (children: ReactNode) => {
 
 const showImage = (index: number) => {
   let root: Function;
-  console.log(index);
   root = createReactRoot(
     <ImageModal defaultIndex={index} onClose={() => root?.()} />
   );
