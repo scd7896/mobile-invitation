@@ -74,3 +74,22 @@
   height: 4px;
   animation: fillProgress 5s ease-out;
 }
+
+.button {
+  width: 100%;
+  height: 56px;
+  margin-top: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #222;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 160%; /* 25.6px */
+}
+
+.button_text {
+  margin-right: 4px;
+}

@@ -34,7 +34,7 @@ const ImageCarousel = () => {
   const handleClickImage = useCallback(
     (targetIndex: number) => {
       if (targetIndex === currentIndex) {
-        imageModal.show(currentIndex);
+        imageModal.show(targetIndex);
       } else {
         setCurrentIndex(targetIndex);
       }
@@ -71,7 +71,8 @@ const ImageCarousel = () => {
         className={styles.button}
         onClick={() => imageModal.show(currentIndex)}
       >
-        사진 전체보기 <ArrowIcon />
+        <span className={styles.button_text}>사진 전체보기</span>
+        <ArrowIcon />
       </div>
     </>
   );

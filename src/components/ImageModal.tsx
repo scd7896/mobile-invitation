@@ -1,10 +1,11 @@
-import { ReactNode, useCallback, useRef, useState } from "react";
+import { ReactNode, useCallback, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import Slider from "react-slick";
 import { imageList } from "../constant/imageList";
 import styles from "./ImageModal.module.css";
 import CloseIcon from "./icon/CloseIcon";
 import ButtonArrowIcon from "./icon/ButtonArrowIcon";
+import ImageLoader from "./image/ImageLoader";
 
 type Props = {
   onClose: () => void;
@@ -13,21 +14,6 @@ type Props = {
 
 const ImageModal = ({ onClose, defaultIndex }: Props) => {
   const sliderRef = useRef<Slider>(null);
-  const [currentIndex, setCurrentIndex] = useState(defaultIndex);
-  const getPrevIndex = useCallback((index: number) => {
-    if (index - 1 < 0) {
-      return imageList.length - 1;
-    }
-    return index - 1;
-  }, []);
-
-  const getNextIndex = useCallback((index: number) => {
-    if (index + 1 >= imageList.length) {
-      return 0;
-    }
-
-    return index + 1;
-  }, []);
 
   return (
     <div className={styles.wrapper}>
@@ -37,10 +23,15 @@ const ImageModal = ({ onClose, defaultIndex }: Props) => {
         </section>
       </section>
       <section className={styles.body}>
-        <Slider className={styles.slider} arrows={false} ref={sliderRef}>
+        <Slider
+          className={styles.slider}
+          arrows={false}
+          ref={sliderRef}
+          initialSlide={defaultIndex}
+        >
           {imageList.map((it) => (
             <div key={it} className={styles.image_wrapper}>
-              <img className={styles.image} src={it} />
+              <ImageLoader className={styles.image} src={it} />
             </div>
           ))}
         </Slider>
@@ -84,6 +75,7 @@ const createReactRoot = (children: ReactNode) => {
 
 const showImage = (index: number) => {
   let root: Function;
+  console.log(index);
   root = createReactRoot(
     <ImageModal defaultIndex={index} onClose={() => root?.()} />
   );
