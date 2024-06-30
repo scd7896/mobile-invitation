@@ -52,7 +52,7 @@ const ImageCarousel = () => {
               onClick={() => handleClickImage(index)}
               className={styles.image}
             >
-              <img src={imageList[index]} width="100%" />
+              <img src={imageList[index]} />
               {index === currentIndex && (
                 <div className={styles.progress}>
                   <div
