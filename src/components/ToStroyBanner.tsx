@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./ToStroyBanner.module.css";
 import ArrowIcon from "./icon/ArrowIcon";
 const ToStoryBanner = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.wrapper}>
       <section className={styles.title}>
@@ -15,7 +18,12 @@ const ToStoryBanner = () => {
           그랬는데 둘이 어떻게 결혼까지 하게 된 걸까요? 둘의 이야기가 궁금하다면
           확인해보세요!
         </div>
-        <div className={styles.link}>
+        <div
+          className={styles.link}
+          onClick={() => {
+            navigate("/story");
+          }}
+        >
           둘의 이야기 보기
           <ArrowIcon />
         </div>
