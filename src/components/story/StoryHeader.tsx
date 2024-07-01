@@ -1,10 +1,13 @@
 import { useEffect, useRef } from "react";
 import styles from "./StoryHeader.module.css";
+import { useNavigate } from "react-router-dom";
 
 const StoryHeader = () => {
+  const navigate = useNavigate();
   const refProgress = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    window.scroll(0, 0);
     const scrollEvent = (e: Event) => {
       const body = document.body;
       const scrollHeight = body.scrollHeight;
@@ -19,9 +22,10 @@ const StoryHeader = () => {
       window.removeEventListener("scroll", scrollEvent);
     };
   }, []);
+
   return (
     <header className={styles.wrapper}>
-      <div className={styles.button}>
+      <div className={styles.button} onClick={() => navigate(-1)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"

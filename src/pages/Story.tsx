@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import QuestionSection from "../components/story/QuestionSection";
 import StoryHeader from "../components/story/StoryHeader";
 import TitleSection from "../components/story/TitleSection";
+import ThankyouForWatch from "../components/story/ThankyouForWatch";
 
 const Story = () => {
   return (
@@ -82,6 +83,8 @@ const Story = () => {
           ]}
         />
       </section>
+      <ThankyouForWatch />
+      <img width="100%" src="/img/img_thx.png" />
       <Footer />
     </div>
   );
