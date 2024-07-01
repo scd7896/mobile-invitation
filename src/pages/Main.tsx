@@ -7,6 +7,7 @@ import Location from "../components/Location";
 import TransportList from "../components/TransportList";
 import PictureViewSection from "../components/PictureViewSection";
 import BankAccount from "../components/BankAccount";
+import ToStoryBanner from "../components/ToStroyBanner";
 
 const Main = () => {
   return (
@@ -19,6 +20,7 @@ const Main = () => {
       <TransportList />
       <PictureViewSection />
       <BankAccount />
+      <ToStoryBanner />
     </div>
   );
 };
