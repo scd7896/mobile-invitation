@@ -1,0 +1,25 @@
+.wrapper {
+  padding: 56px 40px 40px;
+}
+
+.title {
+  color: #222;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 140%; /* 42px */
+}
+
+.description {
+  margin-top: 24px;
+  padding-left: 40px;
+  color: #222;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* 28.8px */
+  letter-spacing: -0.018px;
+}
+
+.title_image {
+  width: 100%;
+}
